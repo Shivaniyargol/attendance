@@ -1,75 +1,71 @@
-QR-Based Attendance Management system using Microsoft Azure
+# QR-Based Attendance Management System Using Microsoft Azure
 
 💻 Frontend
-Language: HTML, CSS, JavaScript
+Languages:
+HTML
+CSS
+JavaScript
 
-Framework: React.js (optional, if used for SPA)
+Framework (Optional):
+React.js – for building a Single Page Application (SPA) and modular components
 
-QR Code Generator UI: JavaScript-based QR code library like qrcodejs or react-qr-code
+QR Code Generation (UI):
+qrcodejs – Lightweight QR generator in vanilla JavaScript
+react-qr-code – React component for rendering QR codes
 
 🧠 Backend
-Language: Python
+Language:
+Python
+Framework:
+Flask or FastAPI – Lightweight API framework for backend logic and endpoints (optional)
 
-Framework: Flask or FastAPI (for API endpoints if any)
+Azure Function Apps (Serverless backend):
+Written In: Python or JavaScript
 
-Azure Function Apps:
-
-Written in Python or JavaScript
-
-Handles QR scan processing, DB entry, blob upload logic, etc.
+Responsibilities:
+Processing QR scan input
+Writing entries into Azure SQL Database
+Uploading QR images to Azure Blob Storage
+Triggering validations and attendance logic
 
 ☁️ Cloud Services (Azure)
 Azure Blob Storage
-
-For storing generated QR code images
-
-Free tier provides 5 GB
+Used to store generated QR code images
+Free-tier provides up to 5 GB storage
 
 Azure SQL Database
+Stores student records and attendance logs
+Easily integrates with Python using pymssql or pyodbc
 
-For storing student records and attendance logs
-
-Azure Functions
-
-Serverless backend logic for:
-
+Azure Function Apps
+Serverless functions for backend logic:
 Uploading QR codes
+Validating student QR scans
+Writing attendance entries to the database
 
-Validating student entries
-
-Storing attendance logs
-
-Azure Web App Service (App Service Plan – Free Tier)
-
-Hosts the frontend or dashboard to interact with the system
+Azure Web App Service (Free Tier)
+Hosts the web-based frontend or admin dashboard
 
 📦 Libraries & Packages
 🔹 Python Libraries
-qrcode: To generate QR codes
-
-pyzbar / opencv-python: For scanning/decoding QR codes
-
-pymssql or pyodbc: For connecting Python to Azure SQL DB
-
-azure-storage-blob: For Azure Blob Storage integration
-
-requests: If calling APIs (e.g., Azure Function endpoints)
-
-Flask: If using a micro backend
+Library	Purpose
+qrcode	Generate QR codes
+pyzbar / opencv-python	Scan and decode QR codes from images
+pymssql / pyodbc	Connect Python backend to Azure SQL
+azure-storage-blob	Upload QR images to Azure Blob Storage
+requests	Make HTTP calls to APIs / Azure Functions
+Flask or FastAPI	Micro-framework for building RESTful APIs (if used)
 
 🔹 JavaScript Libraries
-qrcodejs or react-qr-code: For QR code generation (web UI)
+Library	Purpose
+qrcodejs or react-qr-code	Frontend QR code generation
+axios	Handle API requests from frontend to backend
+html5-qrcode	Scan QR codes using browser camera (optional feature)
 
-axios: For API calls (to Azure Function or backend)
-
-html5-qrcode: To scan QR codes via browser (if needed)
-
-🔧 Dev Tools
-VS Code – code editor (obviously)
-
-Git + GitHub – version control
-
-Postman – for API testing (if APIs used)
-
-Azure CLI / Azure Portal – for deploying services and managing resources
+🔧 Developer Tools
+Tool	Usage
+VS Code	Code editor with Python & JS integrations
+Git + GitHub	Version control and collaborative development
+Postman	API endpoint testing
+Azure CLI / Azure Portal	Resource provisioning, deployment, and monitoring
 
