@@ -1,63 +1,75 @@
-<!-- "use client"
+QR-Based Attendance Management system using Microsoft Azure
 
-import { useEffect, useRef, useState } from "react"
-import { Html5Qrcode } from "html5-qrcode"
+💻 Frontend
+Language: HTML, CSS, JavaScript
 
-type Props = {
-    onScan: (result: string) => void
-}
+Framework: React.js (optional, if used for SPA)
 
-export default function QrScanner({ onScan }: Props) {
-    const qrRegionId = "qr-reader"
-    const html5QrCodeRef = useRef<Html5Qrcode | null>(null)
-    const [error, setError] = useState<string | null>(null)
-    const [isScanning, setIsScanning] = useState(false)
+QR Code Generator UI: JavaScript-based QR code library like qrcodejs or react-qr-code
 
-    useEffect(() => {
-        const html5QrCode = new Html5Qrcode(qrRegionId)
-        html5QrCodeRef.current = html5QrCode
+🧠 Backend
+Language: Python
 
-        Html5Qrcode.getCameras()
-            .then(devices => {
-                if (devices.length === 0) {
-                    setError("No camera found")
-                    return
-                }
+Framework: Flask or FastAPI (for API endpoints if any)
 
-                const cameraId = devices[0].id
+Azure Function Apps:
 
-                html5QrCode.start(
-                    cameraId,
-                    { fps: 10, qrbox: 250 },
-                    (decodedText) => {
-                        if (!isScanning) {
-                            setIsScanning(true)
-                            onScan(decodedText)
-                            html5QrCode.stop().then(() => {
-                                html5QrCode.clear()
-                            })
-                        }
-                    },
-                    (errMsg) => {
-                        // optionally handle scan errors
-                    }
-                ).catch(err => {
-                    setError("Camera start error: " + err)
-                })
-            })
-            .catch(err => {
-                setError("Camera access error: " + err)
-            })
+Written in Python or JavaScript
 
-        return () => {
-            html5QrCodeRef.current?.stop().catch(() => { })
-        }
-    }, [onScan, isScanning])
+Handles QR scan processing, DB entry, blob upload logic, etc.
 
-    return (
-        <div>
-            <div id={qrRegionId} style={{ width: 300 }} />
-            {error && <p className="text-red-500">{error}</p>}
-        </div>
-    )
-} -->
+☁️ Cloud Services (Azure)
+Azure Blob Storage
+
+For storing generated QR code images
+
+Free tier provides 5 GB
+
+Azure SQL Database
+
+For storing student records and attendance logs
+
+Azure Functions
+
+Serverless backend logic for:
+
+Uploading QR codes
+
+Validating student entries
+
+Storing attendance logs
+
+Azure Web App Service (App Service Plan – Free Tier)
+
+Hosts the frontend or dashboard to interact with the system
+
+📦 Libraries & Packages
+🔹 Python Libraries
+qrcode: To generate QR codes
+
+pyzbar / opencv-python: For scanning/decoding QR codes
+
+pymssql or pyodbc: For connecting Python to Azure SQL DB
+
+azure-storage-blob: For Azure Blob Storage integration
+
+requests: If calling APIs (e.g., Azure Function endpoints)
+
+Flask: If using a micro backend
+
+🔹 JavaScript Libraries
+qrcodejs or react-qr-code: For QR code generation (web UI)
+
+axios: For API calls (to Azure Function or backend)
+
+html5-qrcode: To scan QR codes via browser (if needed)
+
+🔧 Dev Tools
+VS Code – code editor (obviously)
+
+Git + GitHub – version control
+
+Postman – for API testing (if APIs used)
+
+Azure CLI / Azure Portal – for deploying services and managing resources
+
