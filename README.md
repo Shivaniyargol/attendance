@@ -40,7 +40,7 @@
   -Hosts the web-based frontend or admin dashboard
 
 ## 📦 Libraries & Packages
-###🔹 Python Libraries
+### 🔹 Python Libraries
 Library	Purpose
 qrcode	- Generate QR codes
 pyzbar / opencv-python - Scan and decode QR codes from images
@@ -49,7 +49,7 @@ azure-storage-blob	- Upload QR images to Azure Blob Storage
 requests	- Make HTTP calls to APIs / Azure Functions
 Flask or FastAPI	- Micro-framework for building RESTful APIs (if used)
 
-###🔹 JavaScript Libraries
+### 🔹 JavaScript Libraries
 Library	Purpose
 qrcodejs or react-qr-code -	Frontend QR code generation
 axios	- Handle API requests from frontend to backend
