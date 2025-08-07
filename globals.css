@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  /* --background: #ffffff; */
+  body {
+    /* @apply bg-[#F3F4F6]; */
+  }
+}
+
+@theme inline {
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    
+  }
+}
